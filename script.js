@@ -66,6 +66,7 @@ const saveListToLocalStorage = () => {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+    alert('Please remove this line from code');
     const AddList = (itemText, quantityValue = "", quantityUnit = "kg", priceValue = "", priceUnit = "/kg", resultInput = "", completed = "false", selected = "false") => {
         const ListItem = document.createElement("li");
         ListItem.classList.add("list-item-calculate");
