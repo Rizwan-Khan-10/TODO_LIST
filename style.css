@@ -1,0 +1,417 @@
+* {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#navbar {
+  width: 100%;
+  flex: 0 1 auto;
+  background-color: #3a3b3d;
+}
+
+#head {
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 10px;
+}
+
+span {
+  display: block;
+  text-shadow: 2px 2px 2px black;
+  padding: 5px 15px;
+  border: 0.5px solid transparent;
+  border-radius: 30px;
+  box-shadow: inset 0px 0px 4px black;
+}
+
+#night-mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mode {
+  font-size: 20px;
+}
+
+#input-budget {
+  position: absolute;
+  left: 150px;
+  width: 60px;
+  height: 18px;
+}
+
+#bar {
+  font-size: 20px;
+  text-shadow: 2px 2px 2px black;
+  margin: 0px 20px;
+}
+
+#mode {
+  font-size: 20px;
+  text-shadow: 2px 2px 2px black;
+  margin: 10px;
+}
+
+#options {
+  height: 25px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  text-shadow: 2px 2px 2px black;
+  width: 32.5%;
+}
+
+.decoration {
+  border: 0.5px solid transparent;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #3a3b3f;
+  box-shadow: 0px 0px 8px black;
+  width: 40%;
+  font-size: 18px;
+  transition: all 350ms linear;
+}
+
+#list-box {
+  width: 100%;
+  flex: 1 1 auto;
+  background-color: #3a3b3f;
+  overflow: auto;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  list-style: none;
+  margin: 10px 15px;
+  padding: 8px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 4px;
+  text-shadow: 2px 2px 2px black;
+  box-shadow: inset 0px 0px 2px black, 0px 0px 2px white;
+  cursor: pointer;
+}
+
+.Completed {
+  opacity: 0.3;
+  background-color: black;
+  text-decoration: line-through;
+  text-decoration-color: black;
+}
+
+#list-box-head {
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px 25px;
+  margin-bottom: 0px;
+}
+
+.li-head {
+  margin: 0px 10px;
+}
+
+.li-head-price {
+  margin-left: -5px;
+  margin-right: 30px;
+}
+
+.head-result {
+  margin-right: 30px;
+}
+
+.li-advance-mode {
+  margin-left: 25px;
+  margin-right: 75px;
+}
+
+.li-head-result {
+  display: none;
+}
+
+.li-calculator-mode {
+  margin-right: 110px;
+}
+
+#input-box {
+  width: 100%;
+  flex: 0 1 auto;
+  background-color: #3a3b3f;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+#input-box input {
+  width: 95%;
+  height: 16px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #3a3b3f;
+  font-size: 16px;
+  outline: 0;
+  border: 0;
+  border-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  margin-right: 0;
+  box-shadow: 0px 0px 2px white;
+  text-shadow: 2px 2px 2px black;
+}
+
+#input-box i {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  box-shadow: 0px 0px 2px white;
+  padding: 8px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.hidden {
+  display: none;
+}
+
+#more-options,
+#delete-options,
+#delete-multi-select-options,
+#mrp-options,
+#mrp-select-options,
+#multiple-select,
+#add-completed,
+#remove-completed{
+  position: absolute;
+  background-color: #3a3b3f;
+  top: 15px;
+  right: 50px;
+  width: 170px;
+  height: 200px;
+  border: 0.5px solid black;
+  box-shadow: 0px 0px 8px black;
+  transition: all 500ms ease-in;
+  animation: move 200ms ease-out;
+}
+
+@keyframes move {
+  0%{
+    right: 0px;
+  }
+  100%
+  {
+    right: 50px;
+  }
+}
+
+.more-options,
+.delete-options,
+.delete-multi-select,
+.mrp-options {
+  padding: 10px;
+  font-size: 16px;
+  border: 0.5px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-shadow: 2px 2px 2px black;
+}
+
+#mrp-unselect {
+  display: none;
+}
+
+#add-budget p {
+  font-size: 18px;
+  text-shadow: 2px 2px 2px black;
+}
+
+#add-budget input {
+  width: 60px;
+  height: 20px;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  background-color: #3a3b3f;
+  box-shadow: 0px 0px 8px black;
+  text-shadow: 2px 2px 2px black;
+}
+
+.more-options i {
+  font-size: 19px;
+}
+
+#mrp-options{
+  width: 220px;
+  height: 120px;
+}
+
+#multiple-select {
+  width: 200px;
+  height: 120px;
+}
+
+#add-completed,
+#remove-completed{
+  width: 150px;
+  height: 80px;
+}
+
+#delete-options {
+  width: 250px;
+  height: 200px;
+}
+
+#delete-multi-select-options {
+  width: 250px;
+  height: 80px;
+}
+
+.li-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.li-input {
+  width: 30px;
+  height: 20px;
+  background-color: #3a3b3f;
+  border: 0;
+  outline: 0;
+  color: white;
+  box-shadow: 0px 0px 4px black;
+  text-shadow: 2px 2px 2px black;
+}
+
+.li-div select {
+  border: 0;
+  outline: 0;
+  background-color: #3a3b3f;
+  width: 40px;
+  height: 20px;
+}
+
+.result {
+  border: 0.5px solid transparent;
+  width: 80px;
+  height: 20px;
+  box-shadow: 0px 0px 4px black;
+  text-shadow: 2px 2px 2px black;
+}
+
+.result p {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.li-result {
+  font-size: 16px;
+}
+
+#show-total,
+#show-budget,
+#add-budget {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+#show-total p,
+#show-budget p {
+  border: 0.5px solid black;
+  box-shadow: 0px 0px 4px black;
+  text-shadow: 2px 2px 2px black;
+  padding: 5px;
+  font-size: 16px;
+}
+
+#show-total i,
+#show-budget i {
+  font-size: 14px;
+}
+
+#mrp-select-options {
+  width: 130px;
+  height: 80px;
+}
+
+#help-info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#info {
+  background-color: #3a3b3f;
+  box-shadow: 0px 0px 8px black;
+  padding: 10px;
+}
+
+#cancel-help {
+  font-size: 18px;
+  margin-left: 95%;
+}
+
+details {
+  padding: 10px;
+  border: 0.5px solid black;
+  box-shadow: 0px 0px 8px black;
+  text-shadow: 2px 2px 2px black;
+  margin: 15px 5px;
+  border-radius: 5px;
+}
+
+summary {
+  font-size: 20px;
+  list-style: none;
+  cursor: pointer;
+}
+
+details p {
+  font-size: 18px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+details ul {
+  margin: 15px;
+}
+
+details li {
+  line-height: 1.5;
+  font-size: 18px;
+}

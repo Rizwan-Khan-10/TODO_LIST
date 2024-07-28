@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <div id="navbar">
+    <div id="head">
+        <span>To Do List</span>
+      <i class="fa-solid fa-bars" id="bar"></i>
+    </div>
+    <div id="options">
+      <div class="option decoration" id="All">All</div>
+      <div class="option" id="Completed">Completed</div>
+      <div class="option" id="Incomplete">Incomplete</div>
+    </div>
+  </div>
+  <div id="list-box">
+    <div id="list-box-head">
+      <span id="li-quantity" class="li-head">Quantity</span>
+      <span id="li-price" class="li-head">Price</span>
+      <span id="li-result" class="li-head">Total</span>
+    </div>
+    <ul class="list" id="ToDoBox"></ul>
+    <div id="add-budget">
+      <p>Enter your Budget </p>
+      <input type="text" id="budget-input" value="₹">
+    </div>
+    <div id="show-total"></div>
+    <div id="show-budget"></div>
+  </div>
+  <div id="input-box">
+    <input type="text" id="to-do" placeholder="Write something here" autofocus>
+    <i class="fa-solid fa-plus"></i>
+  </div>
+  <div id="more-options" class="hidden">
+    <div id="Advance-feature" class="more-options">
+      <p>Advanced Mode</p>
+      <i class="fa-solid fa-toggle-off"></i>
+    </div>
+    <div id="Calculator" class="more-options">
+      <p>Caculator Mode</p>
+      <i class="fa-solid fa-toggle-off"></i>
+    </div>
+    <div id="Budget" class="hidden">
+      <p>Budget Mode</p>
+      <i class="fa-solid fa-toggle-off"></i>
+    </div>
+    <div id="display-budget" class="hidden">
+      <p>Hide Budget</p>
+      <i class="fa-solid fa-indian-rupee-sign"></i>
+    </div>
+    <div id="Select" class="more-options">
+      <p>Multi-Select</p>
+      <i class="fa-solid fa-check-double"></i>
+    </div>
+    <div id="Delete" class="more-options">
+      <p>Delete Tasks</p>
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+    </div>
+    <div id="mrp" class="hidden">
+      <p>Total Mrp</p>
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+    </div>
+    <div id="Help" class="more-options">
+      <p>Help</p>
+      <i class="fa-solid fa-circle-question"></i>
+    </div>
+  </div>
+  <div id="delete-options" class="hidden">
+    <div id="delete-all" class="delete-options">
+      <p>Delete All Tasks</p>
+      <i class="fa-solid fa-trash"></i>
+    </div>
+    <div id="delete-completed" class="delete-options">
+      <p>Delete Completed Tasks</p>
+      <i class="fa-solid fa-trash"></i>
+    </div>
+    <div id="delete-incomplete" class="delete-options">
+      <p>Delete Incomplete Tasks</p>
+      <i class="fa-solid fa-trash"></i>
+    </div>
+    <div id="multi-select" class="more-options">
+      <p>Delete Multi-Select</p>
+      <i class="fa-solid fa-check-double"></i>
+    </div>
+    <div id="cancel-delete" class="delete-options">
+      <p>Cancel</p>
+      <i class="fa-solid fa-times"></i>
+    </div>
+  </div>
+  <div id="delete-multi-select-options" class="hidden">
+    <div id="delete-multi-select" class="delete-multi-select">
+      <p>Delete Multi-Select Tasks</p>
+      <i class="fa-solid fa-trash"></i>
+    </div>
+    <div id="cancel-multi-select" class="delete-multi-select">
+      <p>Cancel</p>
+      <i class="fa-solid fa-times"></i>
+    </div>
+  </div>
+  <div id="mrp-options" class="hidden">
+    <div id="show-mrp" class="mrp-options">
+      <p>Show Mrp</p>
+      <i class="fa-solid fa-indian-rupee-sign"></i>
+    </div>
+    <div id="mrp-multi-select" class="mrp-options">
+      <p>Total Multi-Select</p>
+      <i class="fa-solid fa-check-double"></i>
+    </div>
+    <div id="mrp-unselect" class="mrp-options">
+      <p>UnSelect Selected items</p>
+      <i class="fa-solid fa-check-double"></i>
+    </div>
+    <div id="cancel-mrp-multi-select" class="mrp-options">
+      <p>Cancel</p>
+      <i class="fa-solid fa-times"></i>
+    </div>
+  </div>
+  <div id="mrp-select-options" class="hidden">
+    <div id="mrp-select" class="mrp-options">
+      <p>Done</p>
+      <i class="fa-solid fa-indian-rupee-sign"></i>
+    </div>
+    <div id="cancel-mrp-select" class="mrp-options">
+      <p>Cancel</p>
+      <i class="fa-solid fa-times"></i>
+    </div>
+  </div>
+  <div id="multiple-select" class="hidden">
+    <div id="select-completed" class="mrp-options">
+      <p>Add Task</p>
+      <i class="fa-solid fa-check-double"></i>
+    </div>
+    <div id="select-incomplete" class="mrp-options">
+      <p>Remove Task</p>
+      <i class="fa-solid fa-check-double"></i>
+    </div>
+    <div id="cancel-multiple-select" class="mrp-options">
+      <p>Cancel</p>
+      <i class="fa-solid fa-times"></i>
+    </div>
+  </div>
+  <div id="add-completed" class="hidden">
+    <div id="Done-add" class="mrp-options">
+      <p>Done</p>
+      <i class="fa-solid fa-indian-rupee-sign"></i>
+    </div>
+    <div id="cancel-add-completed" class="mrp-options">
+      <p>Cancel</p>
+      <i class="fa-solid fa-times"></i>
+    </div>
+  </div>
+  <div id="remove-completed" class="hidden">
+    <div id="Done-remove" class="mrp-options">
+      <p>Done</p>
+      <i class="fa-solid fa-indian-rupee-sign"></i>
+    </div>
+    <div id="cancel-remove-completed" class="mrp-options">
+      <p>Cancel</p>
+      <i class="fa-solid fa-times"></i>
+    </div>
+  </div>
+  <div id="help-info" class="hidden">
+    <div id="info">
+      <div id="cancel-help"><i class="fa-solid fa-times"></i></div>
+      <details>
+        <summary>How to add task or item?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> To add a task or item, either press Enter on your keyboard or click
+          on the plus sign located next to the input field.</p>
+      </details>
+      <details>
+        <summary>How to remove task or item?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> To remove a task or item, click on the task or item you want to
+          remove, and then double-click on the times (cross) sign.</p>
+      </details>
+      <details>
+        <summary>How to add a task or item as Completed or Purchased?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> Double-click on the task or item to mark it as Completed or
+          Purchased.</p>
+      </details>
+      <details>
+        <summary>How to remove a task or item as Completed or Purchased?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> Double-click on the task or item to mark it as Incomplete or
+          Remaining.</p>
+      </details>
+      <details>
+        <summary>What is delete tasks or items?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> When you click on it, three options are shown: Delete All, Delete
+          Completed or Purchased, and Delete Incomplete or Remaining.</p>
+        <ul>
+          <li>The first option deletes all tasks or items.</li>
+          <li>The second option deletes all completed(purchased) tasks(items).</li>
+          <li>The third option deletes all incomplete(remaining) tasks(items).</li>
+        </ul>
+      </details>
+      <details>
+        <summary>What is Multi-Select?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> It deletes all selected tasks or items.</p>
+      </details>
+      <details>
+        <summary>What is Advanced Mode?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> It is a feature that makes this to-do list more useful. When enabled,
+          the to-do list is converted into a shopping list, allowing you to add items with their quantities and prices.
+          You can also use it for many other purposes.</p>
+      </details>
+      <details>
+        <summary>What is Calculator Mode?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> It is a feature that works with advanced mode. It takes the values of
+          quantity and prices from advanced mode, calculates the total, and displays it. To use it, you must enter
+          values in advanced mode.</p>
+      </details>
+      <details>
+        <summary>What is Budget Mode?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> This feature is enabled when both advanced mode and calculator mode
+          are on. It helps you to manage your budget by warning you if the total price of your items exceeds your
+          budget. To use this feature properly, you must enter both the price and quantity of the items.</p>
+      </details>
+      <details>
+        <summary>Full Form of units</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> This are Full Form of units you see when advanced mode is enabled</p>
+        <ul>
+          <li>kg - kilogram</li>
+          <li>g - gram</li>
+          <li>L - Liter</li>
+          <li>ml - mililiter</li>
+          <li>pc - piece</li>
+          <li>st - set</li>
+          <li>dz - dozen</li>
+          <li>/kg - per kilogram</li>
+          <li>/g - per gram</li>
+          <li>/L - per Liter</li>
+          <li>/ml - per mililiter</li>
+          <li>/pc - per piece</li>
+          <li>/st - per set</li>
+          <li>/dz - per dozen</li>
+        </ul>
+      </details>
+      <details>
+        <summary>More about units</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> In advanced mode, you have options for units like kg and per kg. If
+          you know the price per kg, you can enter it by selecting "/kg" in the price field. If you don`t know the per
+          kg price but know the total price, you can enter it by selecting "kg" in the price field. Units like gram and
+          milliliter are represented by default as "g" and "ml" in the price field. If you want to add a price per
+          milliliter or per gram, you can select "/g" or "/ml" in the price field. If you choose "g" in the quantity
+          field, by default it will display "g" in the price field.</p>
+      </details>
+      <details>
+        <summary>What is Mrp Total?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> This feature is enabled when calculator mode is on. To use it
+          properly, you must enter the values of quantity and prices for the items you have entered.</p>
+      </details>
+      <details>
+        <summary>What does Show Mrp does?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> When clicked, it shows the total of purchased items in the
+          "Purchased" section, the total of remaining items in the "Remaining" section, and the total of all items in
+          the "All" section.</p>
+      </details>
+      <details>
+        <summary>What does Mrp Multi-Select Do?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> When you click on it, you can select items. After selecting items,
+          click on Done to see the total of selected items in the "Selected" section, the total of not selected items in
+          the "Not Selected" section, and the total of all items in the "All" section.</p>
+      </details>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
