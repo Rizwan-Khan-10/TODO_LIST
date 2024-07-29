@@ -51,7 +51,7 @@ const saveListToLocalStorage = () => {
     const items = [];
     document.querySelectorAll('#ToDoBox li').forEach((item) => {
         items.push({
-            id:  item.id,
+            id: item.id,
             text: item.childNodes[0].nodeValue.trim(),
             completed: item.dataset.completed,
             selected: item.dataset.selected,
@@ -66,7 +66,6 @@ const saveListToLocalStorage = () => {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-    alert('Please remove this line from code');
     const AddList = (itemText, quantityValue = "", quantityUnit = "kg", priceValue = "", priceUnit = "/kg", resultInput = "", completed = "false", selected = "false") => {
         const ListItem = document.createElement("li");
         ListItem.classList.add("list-item-calculate");
@@ -451,7 +450,7 @@ function BudgetCalculator() {
     let inputBudgetValue = document.getElementById('budget-input').value;
     inputBudgetValue = inputBudgetValue.replace(/₹/g, '');
     const BudgetInput = (parseFloat(inputBudgetValue) || previousBudget) || 0;
-    if(inputBudgetValue.length > 0){
+    if (inputBudgetValue.length > 0) {
         localStorage.setItem('budgetValue', BudgetInput); // Save budget to local storage
     }
     const total = sumResults("All");
@@ -704,6 +703,8 @@ AddCompleted.addEventListener("click", function () {
     isMultiSelectEnabled = !isMultiSelectEnabled;
     toggleMultiSelectMode(isMultiSelectEnabled);
     AddDeco(Incomplete, [All, Completed]);
+    filter = "Incomplete";
+    filterList();
 })
 
 DoneAdd.addEventListener("click", function () {
@@ -714,6 +715,7 @@ DoneAdd.addEventListener("click", function () {
         filter = "Completed";
         filterList();
     });
+    saveListToLocalStorage();
     DoneAdd.classList.add("hidden");
     isMultiSelectEnabled = false;
     toggleMultiSelectMode(false);
@@ -729,17 +731,20 @@ RemoveCompleted.addEventListener("click", function () {
     DoneRemove.classList.remove("hidden");
     isMultiSelectEnabled = !isMultiSelectEnabled;
     toggleMultiSelectMode(isMultiSelectEnabled);
-    AddDeco(All, [Incomplete, Completed]);
+    AddDeco(Completed, [Incomplete, All]);
+    filter = "Completed";
+    filterList();
 })
 
 DoneRemove.addEventListener("click", function () {
     const selectedItems = ToDoBox.querySelectorAll("li.selected");
     selectedItems.forEach(item => {
-        AddDeco(All, [Completed, Incomplete]);
+        AddDeco(Incomplete, [Completed, All]);
         item.dataset.completed = "false";
-        filter = "All";
+        filter = "Incomplete";
         filterList();
     });
+    saveListToLocalStorage();
     DoneRemove.classList.add("hidden");
     isMultiSelectEnabled = false;
     toggleMultiSelectMode(false);
