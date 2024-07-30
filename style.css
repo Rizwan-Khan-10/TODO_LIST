@@ -103,7 +103,7 @@ span {
   border: 0;
   border-radius: 4px;
   text-shadow: 2px 2px 2px black;
-  box-shadow: 2px 4px 10px black, 0px 0px 10px white, inset -1px -1px 15px black;
+  box-shadow: 2px 4px 8px black, 0px 0px 6px white, inset -1px -1px 10px black;
   cursor: pointer;
 }
 
@@ -124,8 +124,8 @@ span {
 }
 
 .li-head-price {
-  margin-right: 21vw;
-  margin-left: 11vw;
+  margin-right: 15vw;
+  margin-left: 10vw;
 }
 
 .head-result {
@@ -133,8 +133,8 @@ span {
 }
 
 .li-advance-mode {
-  margin-left: 16vw;
-  margin-right: 21vw;
+  margin-left: 2vh;
+  margin-right: 6vh;
 }
 
 .li-head-result {
@@ -142,7 +142,7 @@ span {
 }
 
 .li-calculator-mode {
-  margin-right: 17.5vw;
+  margin-right: 6vh;
 }
 
 #input-box {
@@ -250,7 +250,7 @@ span {
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
-  background-color: #3a3b3f;
+  background-color: transparent;
   box-shadow: 0px 0px 8px black;
   text-shadow: 2px 2px 2px black;
 }
@@ -367,6 +367,8 @@ span {
 
 #help-info {
   position: absolute;
+  top: 0;
+  right: 0;
   width: 100%;
   height: 100%;
 }
