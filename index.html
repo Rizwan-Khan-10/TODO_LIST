@@ -12,7 +12,7 @@
 <body>
   <div id="navbar">
     <div id="head">
-        <span>To Do List</span>
+      <span>To Do List</span>
       <i class="fa-solid fa-bars" id="bar"></i>
     </div>
     <div id="options">
@@ -23,9 +23,9 @@
   </div>
   <div id="list-box">
     <div id="list-box-head">
-      <span id="li-quantity" class="li-head">Quantity</span>
-      <span id="li-price" class="li-head">Price</span>
-      <span id="li-result" class="li-head">Total</span>
+      <div id="li-quantity" class="li-head">Quantity</div>
+      <div id="li-price" class="li-head">Price</div>
+      <div id="li-result" class="li-head">Total</div>
     </div>
     <ul class="list" id="ToDoBox"></ul>
     <div id="add-budget">
@@ -171,38 +171,40 @@
     <div id="info">
       <div id="cancel-help"><i class="fa-solid fa-times"></i></div>
       <details>
-        <summary>How to add task or item?</summary>
-        <p><i class="fa-solid fa-arrow-right"></i> To add a task or item, either press Enter on your keyboard or click
-          on the plus sign located next to the input field.</p>
+        <summary>How to add task/item?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> To add a task/item, either press Enter on your keyboard or click
+          on the plus sign located next to the input field.
+        <li>Tasks/Items enter by you is saved in local storage</li></p>
       </details>
       <details>
-        <summary>How to remove task or item?</summary>
-        <p><i class="fa-solid fa-arrow-right"></i> To remove a task or item, click on the task or item you want to
-          remove, and then double-click on the times (cross) sign.</p>
+        <summary>How to delete tasks/items?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i>There are many Method to delete tasks/items
+          <li>Note : If you delete any tasks/items it will be deleted permanently</li>
+          <li>Click on the task/item you want to delete and then double-click on the times/cross sign to delete it using
+            this method you can delete only one task at a time</li>
+          <li>You can delete all tasks/items in one clicked when you click on Delete All taska/items which can be seen
+            when clicked on Delete tasks/items</li>
+          <li>You can delete all Completed tasks/items in one clicked when you click on Delete Completed tasks/itmes
+            which can be seen when clicked on Delete tasks/items</li>
+          <li>You can delete all Incomplete tasks/items in one clicked when you click on Delete Incomplete tasks/items
+            which can be seen when clicked on Delete tasks/items</li>
+          <li>If you want to delete tasks/items by choosing yourself then click on Delete Multi-select tasks/items
+            select tasks/items you want to delete and click on done to delete them which can be seen when clicked on
+            Delete tasks/items</li>
+
+        </p>
       </details>
       <details>
-        <summary>How to add a task or item as Completed or Purchased?</summary>
-        <p><i class="fa-solid fa-arrow-right"></i> Double-click on the task or item to mark it as Completed or
-          Purchased.</p>
+        <summary>How to mark/unmark an task/item as Completed or Purchased?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> Double-click on that task/item to mark it as Completed/Purchased and
+          that task/item will automatically go under Completed/Purchased Section again double click on it to unmark it
+          as Completed/Purchased.</p>
       </details>
       <details>
-        <summary>How to remove a task or item as Completed or Purchased?</summary>
-        <p><i class="fa-solid fa-arrow-right"></i> Double-click on the task or item to mark it as Incomplete or
-          Remaining.</p>
-      </details>
-      <details>
-        <summary>What is delete tasks or items?</summary>
-        <p><i class="fa-solid fa-arrow-right"></i> When you click on it, three options are shown: Delete All, Delete
-          Completed or Purchased, and Delete Incomplete or Remaining.</p>
-        <ul>
-          <li>The first option deletes all tasks or items.</li>
-          <li>The second option deletes all completed(purchased) tasks(items).</li>
-          <li>The third option deletes all incomplete(remaining) tasks(items).</li>
-        </ul>
-      </details>
-      <details>
-        <summary>What is Multi-Select?</summary>
-        <p><i class="fa-solid fa-arrow-right"></i> It deletes all selected tasks or items.</p>
+        <summary>How to mark or unmark Multiple tasks/items as Completed/Purchased tasks/items?</summary>
+        <p><i class="fa-solid fa-arrow-right"></i> Click on Multi-select option and then click on add tasks/items and
+          then select tasks/items you want to mark them as Completed/Purcahsed and then click on done same process to unmark
+          them instead of add task/items click on remove tasks/items</p>
       </details>
       <details>
         <summary>What is Advanced Mode?</summary>
@@ -213,7 +215,7 @@
       <details>
         <summary>What is Calculator Mode?</summary>
         <p><i class="fa-solid fa-arrow-right"></i> It is a feature that works with advanced mode. It takes the values of
-          quantity and prices from advanced mode, calculates the total, and displays it. To use it, you must enter
+          quantity and prices from advanced mode, calculates the result, and displays it. To use it, you must enter
           values in advanced mode.</p>
       </details>
       <details>
