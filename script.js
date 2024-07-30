@@ -543,7 +543,7 @@ function DisplayHead() {
         ListBoxHead.querySelector("#li-quantity").classList.remove("li-head-result");
         ListBoxHead.querySelector("#li-price").classList.remove("li-head-result");
         ListBoxHead.querySelector("#li-result").classList.add("head-result");
-        MoreOptions.style.height = "284px";
+        MoreOptions.style.height = "280px";
         BudgetMode.classList.remove('hidden');
         BudgetMode.classList.add('more-options');
         TotalMrp.classList.remove("hidden");
@@ -560,7 +560,7 @@ function DisplayHead() {
             }
         });
         if (BudgetMode.querySelector("i").classList.contains("fa-toggle-on")) {
-            MoreOptions.style.height = "325px";
+            MoreOptions.style.height = "320px";
         }
     }
     else if (AdvanceMode.querySelector("i").classList.contains("fa-toggle-on")) {
@@ -572,7 +572,7 @@ function DisplayHead() {
         ListBoxHead.querySelector("#li-price").classList.remove("li-head-price");
         ListBoxHead.querySelector("#li-result").classList.remove("li-calculator-mode");
         ListBoxHead.querySelector("#li-result").classList.remove("head-result");
-        MoreOptions.style.height = "203px";
+        MoreOptions.style.height = "200px";
         TotalMrp.classList.remove("more-options");
         TotalMrp.classList.add("hidden");
         BudgetMode.classList.remove('more-options');
@@ -607,7 +607,7 @@ function DisplayHead() {
         ListBoxHead.querySelector("#li-quantity").classList.add("li-head-result");
         ListBoxHead.querySelector("#li-result").classList.add("li-calculator-mode");
         ListBoxHead.querySelector("#li-result").classList.remove("head-result");
-        MoreOptions.style.height = "243px";
+        MoreOptions.style.height = "240px";
         TotalMrp.classList.remove("hidden");
         TotalMrp.classList.add("more-options");
         BudgetMode.classList.remove('more-options');
@@ -624,7 +624,7 @@ function DisplayHead() {
         });
     }
     else {
-        MoreOptions.style.height = "203px";
+        MoreOptions.style.height = "200px";
         localStorage.setItem('advanceMode_Calculator_mode', false);
         localStorage.setItem('calculatormode', false);
         localStorage.setItem('advancedmode', false);
