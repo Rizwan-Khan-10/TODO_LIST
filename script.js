@@ -158,6 +158,9 @@ document.addEventListener("DOMContentLoaded", function () {
         handleModeChange();
         saveListToLocalStorage();
         DisplayHead();
+        Total();
+        BudgetCalculator();
+        calculateResult(ListItem);
     };
 
 
@@ -227,7 +230,6 @@ document.addEventListener("DOMContentLoaded", function () {
         MrpOptions.classList.add("hidden");
         ShowDone.classList.add("hidden");
         restoreIcons();
-        BudgetCalculator();
     });
 
     document.addEventListener("click", function (event) {
@@ -237,6 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
             MrpOptions.classList.add("hidden");
             MultipleSelect.classList.add("hidden");
             BudgetCalculator();
+            Total();
         }
     });
     loadListFromLocalStorage();
@@ -659,6 +662,8 @@ DeleteAll.addEventListener("click", function () {
     CorrectDelete();
     deleteCompletedItems();
     deleteIncompleteItems();
+    BudgetCalculator();
+    Total();
 });
 
 // Event listener to delete completed items
@@ -670,6 +675,8 @@ DeleteCompleted.addEventListener("click", function () {
     ShowTotal.classList.remove("fake-again");
     deleteCompletedItems();
     filterList();
+    BudgetCalculator();
+    Total();
 });
 
 // Function to delete completed items from the list and local storage
@@ -693,6 +700,8 @@ DeleteIncomplete.addEventListener("click", function () {
     ShowTotal.classList.remove("fake-again");
     deleteIncompleteItems();
     filterList();
+    BudgetCalculator();
+    Total();
 });
 
 // Function to delete incomplete items from the list and local storage
@@ -749,6 +758,8 @@ DoneAdd.addEventListener("click", function () {
     isMultiSelectEnabled = false;
     toggleMultiSelectMode(false);
     restoreIcons();
+    BudgetCalculator();
+    Total();
 })
 
 document.getElementById("cancel-add-completed").addEventListener("click", function () {
@@ -785,6 +796,8 @@ DoneRemove.addEventListener("click", function () {
     isMultiSelectEnabled = false;
     toggleMultiSelectMode(false);
     restoreIcons();
+    BudgetCalculator();
+    Total();
 })
 
 document.getElementById("cancel-remove-completed").addEventListener("click", function () {
@@ -844,6 +857,8 @@ DeleteMultiSelect.addEventListener("click", function () {
         toggleMultiSelectMode(false);
         restoreIcons();
         deleteSelectedItems();
+        BudgetCalculator();
+        Total();
     }
 });
 
@@ -903,6 +918,8 @@ const addEventListenerToInputs = (ListItem) => {
         select1.value = select2.value;
     });
 
+    select1.addEventListener('input', () => calculateResult(ListItem));
+    select2.addEventListener('input', () => calculateResult(ListItem));
 };
 
 // Function to calculate and display result based on quantity and price inputs
