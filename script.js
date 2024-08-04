@@ -959,6 +959,7 @@ const calculateResult = (ListItem) => {
     }
     loadBudgetFromStorage();
     BudgetCalculator();
+    Total();
     saveListToLocalStorage();
 };
 
