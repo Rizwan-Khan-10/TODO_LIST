@@ -286,9 +286,7 @@ span {
 }
 
 .li-text{
-  width: 350px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: scroll hidden;
 }
 
 .li-div {
