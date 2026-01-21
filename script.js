@@ -51,8 +51,8 @@ const saveListToLocalStorage = () => {
     const items = [];
     document.querySelectorAll('#ToDoBox li').forEach((item) => {
         items.push({
-            id:  item.id,
-            text: item.childNodes[0].nodeValue.trim(),
+            id: item.id,
+            text: item.querySelector(".li-text").textContent.trim(),
             completed: item.dataset.completed,
             selected: item.dataset.selected,
             quantityValue: item.querySelector(".quantity .li-input").value,
@@ -66,48 +66,47 @@ const saveListToLocalStorage = () => {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-    alert('Please remove this line from code');
     const AddList = (itemText, quantityValue = "", quantityUnit = "kg", priceValue = "", priceUnit = "/kg", resultInput = "", completed = "false", selected = "false") => {
         const ListItem = document.createElement("li");
-        ListItem.classList.add("list-item-calculate");
+        //ListItem.classList.add("list-item-calculate");
         ListItem.innerHTML = `
-            ${itemText}
+            <div class="li-text">${itemText}</div>
             <div class="quantity li-div" style="display:none;">
                 <input type="number" class="li-input" value="${quantityValue}">
                 <select>
-                    <option value="/kg" selected ${quantityUnit === "/kg" ? "selected" : ""}>kg</option>
-                    <option value="g" ${quantityUnit === "g" ? "selected" : ""}>g</option>
-                    <option value="/pc" ${quantityUnit === "/pc" ? "selected" : ""}>pc</option>
-                    <option value="/dz" ${quantityUnit === "/dz" ? "selected" : ""}>dz</option>
-                    <option value="/st" ${quantityUnit === "/st" ? "selected" : ""}>st</option>
-                    <option value="/L" ${quantityUnit === "/L" ? "selected" : ""}>L</option>
-                    <option value="ml" ${quantityUnit === "ml" ? "selected" : ""}>ml</option>
-                    <option value="kg" ${quantityUnit === "kg" ? "selected" : ""} class='hidden'>kg</option>
-                    <option value="/g" ${quantityUnit === "/g" ? "selected" : ""} class='hidden'>g</option>
-                    <option value="pc" ${quantityUnit === "pc" ? "selected" : ""} class='hidden'>pc</option>
-                    <option value="dz" ${quantityUnit === "dz" ? "selected" : ""} class='hidden'>dz</option>
-                    <option value="st" ${quantityUnit === "st" ? "selected" : ""} class='hidden'>st</option>
-                    <option value="L" ${quantityUnit === "L" ? "selected" : ""} class='hidden'>L</option>
-                    <option value="/ml" ${quantityUnit === "/ml" ? "selected" : ""} class='hidden'>ml</option>
+                    <option value="/kg" selected ${quantityUnit === "/kg" ? "selected" : ""} class="options">kg</option>
+                    <option value="g" ${quantityUnit === "g" ? "selected" : ""} class="options">g</option>
+                    <option value="/pc" ${quantityUnit === "/pc" ? "selected" : ""} class="options">pc</option>
+                    <option value="/dz" ${quantityUnit === "/dz" ? "selected" : ""} class="options">dz</option>
+                    <option value="/st" ${quantityUnit === "/st" ? "selected" : ""} class="options">st</option>
+                    <option value="/L" ${quantityUnit === "/L" ? "selected" : ""} class="options">L</option>
+                    <option value="ml" ${quantityUnit === "ml" ? "selected" : ""} class="options">ml</option>
+                    <option value="kg" ${quantityUnit === "kg" ? "selected" : ""} class='hidden options'>kg</option>
+                    <option value="/g" ${quantityUnit === "/g" ? "selected" : ""} class='hidden options'>g</option>
+                    <option value="pc" ${quantityUnit === "pc" ? "selected" : ""} class='hidden options'>pc</option>
+                    <option value="dz" ${quantityUnit === "dz" ? "selected" : ""} class='hidden options'>dz</option>
+                    <option value="st" ${quantityUnit === "st" ? "selected" : ""} class='hidden options'>st</option>
+                    <option value="L" ${quantityUnit === "L" ? "selected" : ""} class='hidden options'>L</option>
+                    <option value="/ml" ${quantityUnit === "/ml" ? "selected" : ""} class='hidden options'>ml</option>
                 </select>
             </div>
             <div class="price li-div" style="display:none;">
                 <input type="number" class="li-input" value="${priceValue}">
                 <select>
-                    <option value="/kg" selected ${priceUnit === "/kg" ? "selected" : ""}>/kg</option>
-                    <option value="g" ${priceUnit === "g" ? "selected" : ""}>g</option>
-                    <option value="/pc" ${priceUnit === "/pc" ? "selected" : ""}>/pc</option>
-                    <option value="/dz" ${priceUnit === "/dz" ? "selected" : ""}>/dz</option>
-                    <option value="/st" ${priceUnit === "/st" ? "selected" : ""}>/st</option>
-                    <option value="/L" ${priceUnit === "/L" ? "selected" : ""}>/L</option>
-                    <option value="ml" ${priceUnit === "ml" ? "selected" : ""}>ml</option>
-                    <option value="kg" ${priceUnit === "kg" ? "selected" : ""}>kg</option>
-                    <option value="/g" ${priceUnit === "/g" ? "selected" : ""}>/g</option>
-                    <option value="pc" ${priceUnit === "pc" ? "selected" : ""}>pc</option>
-                    <option value="dz" ${priceUnit === "dz" ? "selected" : ""}>dz</option>
-                    <option value="st" ${priceUnit === "st" ? "selected" : ""}>st</option>
-                    <option value="L" ${priceUnit === "L" ? "selected" : ""}>L</option>
-                    <option value="/ml" ${priceUnit === "/ml" ? "selected" : ""}>/ml</option>
+                    <option value="/kg" selected ${priceUnit === "/kg" ? "selected" : ""} class="options">/kg</option>
+                    <option value="g" ${priceUnit === "g" ? "selected" : ""} class="options">g</option>
+                    <option value="/pc" ${priceUnit === "/pc" ? "selected" : ""} class="options">/pc</option>
+                    <option value="/dz" ${priceUnit === "/dz" ? "selected" : ""} class="options">/dz</option>
+                    <option value="/st" ${priceUnit === "/st" ? "selected" : ""} class="options">/st</option>
+                    <option value="/L" ${priceUnit === "/L" ? "selected" : ""} class="options">/L</option>
+                    <option value="ml" ${priceUnit === "ml" ? "selected" : ""} class="options">ml</option>
+                    <option value="kg" ${priceUnit === "kg" ? "selected" : ""} class="options">kg</option>
+                    <option value="/g" ${priceUnit === "/g" ? "selected" : ""} class="options">/g</option>
+                    <option value="pc" ${priceUnit === "pc" ? "selected" : ""} class="options">pc</option>
+                    <option value="dz" ${priceUnit === "dz" ? "selected" : ""} class="options">dz</option>
+                    <option value="st" ${priceUnit === "st" ? "selected" : ""} class="options">st</option>
+                    <option value="L" ${priceUnit === "L" ? "selected" : ""} class="options">L</option>
+                    <option value="/ml" ${priceUnit === "/ml" ? "selected" : ""} class="options">/ml</option>
                 </select>
             </div>
             <div class="result li-div" style="display:none;">
@@ -158,6 +157,10 @@ document.addEventListener("DOMContentLoaded", function () {
         addEventListenerToInputs(ListItem);
         handleModeChange();
         saveListToLocalStorage();
+        DisplayHead();
+        Total();
+        BudgetCalculator();
+        calculateResult(ListItem);
     };
 
 
@@ -227,7 +230,6 @@ document.addEventListener("DOMContentLoaded", function () {
         MrpOptions.classList.add("hidden");
         ShowDone.classList.add("hidden");
         restoreIcons();
-        BudgetCalculator();
     });
 
     document.addEventListener("click", function (event) {
@@ -235,11 +237,14 @@ document.addEventListener("DOMContentLoaded", function () {
             MoreOptions.classList.add("hidden");
             DeleteOptions.classList.add("hidden");
             MrpOptions.classList.add("hidden");
+            MultipleSelect.classList.add("hidden");
             BudgetCalculator();
+            Total();
         }
     });
     loadListFromLocalStorage();
     loadBudgetFromStorage();
+    AddDeco(All, [Completed, Incomplete])
 });
 
 function forTotal() {
@@ -358,9 +363,11 @@ const updateTotal = (type) => {
 
 // Function to add decoration to active filter button
 function AddDeco(Element, OtherElements) {
+    Element.classList.remove("not-deco");
     Element.classList.add("decoration");
     OtherElements.forEach(element => {
         element.classList.remove("decoration");
+        element.classList.add("not-deco");
     });
 }
 
@@ -386,9 +393,9 @@ const showBudgetUI = () => {
     BudgetMode.querySelector("i").classList.add("fa-toggle-on");
     DisplayBudget.classList.remove('hidden');
     DisplayBudget.classList.add('more-options');
-    MoreOptions.style.height = '320px';
     BudgetMode.querySelector("i").classList.remove("fa-toggle-off");
     if (BudgetMode.querySelector("i").classList.contains("fa-toggle-on")) {
+        DisplayHead();
         AddBudget.style.display = 'flex';
         AddBudget.innerHTML = `<p>Enter your Budget </p>
             <input type="text" id="budget-input" value="₹">`;
@@ -409,9 +416,9 @@ const hideBudgetUI = () => {
       <i class="fa-solid fa-indian-rupee-sign"></i>`;
     DisplayBudget.classList.add('hidden');
     DisplayBudget.classList.remove('more-options');
-    MoreOptions.style.height = '280px';
     ShowBudget.style.display = 'none';
     localStorage.setItem('budgetMode', false);
+    DisplayHead();
 }
 
 BudgetMode.addEventListener('click', function () {
@@ -451,7 +458,7 @@ function BudgetCalculator() {
     let inputBudgetValue = document.getElementById('budget-input').value;
     inputBudgetValue = inputBudgetValue.replace(/₹/g, '');
     const BudgetInput = (parseFloat(inputBudgetValue) || previousBudget) || 0;
-    if(inputBudgetValue.length > 0){
+    if (inputBudgetValue.length > 0) {
         localStorage.setItem('budgetValue', BudgetInput); // Save budget to local storage
     }
     const total = sumResults("All");
@@ -499,7 +506,6 @@ function OnOff(Element) {
     else {
         Element.querySelector("i").classList.remove("fa-toggle-on");
         Element.querySelector("i").classList.add("fa-toggle-off");
-        MoreOptions.style.height = "200px";
         TotalMrp.classList.add("hidden");
         TotalMrp.classList.remove("more-options");
         DisplayBudget.classList.add('hidden');
@@ -548,8 +554,16 @@ function DisplayHead() {
         localStorage.setItem('advanceMode_Calculator_mode', true);
         localStorage.setItem('calculatormode', false);
         localStorage.setItem('advancedmode', false);
+        ToDoBox.style.justifyContent = "space-evenly";
+        const items = ToDoBox.querySelectorAll("li");
+        items.forEach(item => {
+            const text = item.querySelector(".li-text");
+            if (text) {
+                text.style.width = "50px";
+            }
+        });
         if (BudgetMode.querySelector("i").classList.contains("fa-toggle-on")) {
-            MoreOptions.style.height = "320px"
+            MoreOptions.style.height = "320px";
         }
     }
     else if (AdvanceMode.querySelector("i").classList.contains("fa-toggle-on")) {
@@ -569,6 +583,13 @@ function DisplayHead() {
         localStorage.setItem('advanceMode_Calculator_mode', false);
         localStorage.setItem('calculatormode', false);
         localStorage.setItem('advancedmode', true);
+        const items = ToDoBox.querySelectorAll("li");
+        items.forEach(item => {
+            const text = item.querySelector(".li-text");
+            if (text) {
+                text.style.width = "100px";
+            }
+        });
         if (CalculatorMode.querySelector("i").classList.contains("fa-toggle-off")) {
             MrpOptions.style.height = '120px';
             Unselect.style.display = 'none';
@@ -597,8 +618,16 @@ function DisplayHead() {
         localStorage.setItem('advanceMode_Calculator_mode', false);
         localStorage.setItem('calculatormode', true);
         localStorage.setItem('advancedmode', false);
+        const items = ToDoBox.querySelectorAll("li");
+        items.forEach(item => {
+            const text = item.querySelector(".li-text");
+            if (text) {
+                text.style.width = "200px";
+            }
+        });
     }
     else {
+        MoreOptions.style.height = "200px";
         localStorage.setItem('advanceMode_Calculator_mode', false);
         localStorage.setItem('calculatormode', false);
         localStorage.setItem('advancedmode', false);
@@ -607,6 +636,13 @@ function DisplayHead() {
         ListBoxHead.style.display = "none";
         Completed.innerHTML = "Completed";
         Incomplete.innerHTML = "Incomplete";
+        const items = ToDoBox.querySelectorAll("li");
+        items.forEach(item => {
+            const text = item.querySelector(".li-text");
+            if (text) {
+                text.style.width = "350px";
+            }
+        });
     }
 }
 
@@ -626,6 +662,8 @@ DeleteAll.addEventListener("click", function () {
     CorrectDelete();
     deleteCompletedItems();
     deleteIncompleteItems();
+    BudgetCalculator();
+    Total();
 });
 
 // Event listener to delete completed items
@@ -637,6 +675,8 @@ DeleteCompleted.addEventListener("click", function () {
     ShowTotal.classList.remove("fake-again");
     deleteCompletedItems();
     filterList();
+    BudgetCalculator();
+    Total();
 });
 
 // Function to delete completed items from the list and local storage
@@ -660,6 +700,8 @@ DeleteIncomplete.addEventListener("click", function () {
     ShowTotal.classList.remove("fake-again");
     deleteIncompleteItems();
     filterList();
+    BudgetCalculator();
+    Total();
 });
 
 // Function to delete incomplete items from the list and local storage
@@ -690,12 +732,7 @@ Select.addEventListener('click', function () {
 })
 
 document.getElementById("cancel-multiple-select").addEventListener("click", function () {
-    if (isMultiSelectEnabled) {
-        MultipleSelect.classList.add("hidden");
-        isMultiSelectEnabled = false;
-        toggleMultiSelectMode(false);
-        restoreIcons();
-    }
+    MultipleSelect.classList.add("hidden");
 })
 
 AddCompleted.addEventListener("click", function () {
@@ -704,6 +741,8 @@ AddCompleted.addEventListener("click", function () {
     isMultiSelectEnabled = !isMultiSelectEnabled;
     toggleMultiSelectMode(isMultiSelectEnabled);
     AddDeco(Incomplete, [All, Completed]);
+    filter = "Incomplete";
+    filterList();
 })
 
 DoneAdd.addEventListener("click", function () {
@@ -714,40 +753,56 @@ DoneAdd.addEventListener("click", function () {
         filter = "Completed";
         filterList();
     });
+    saveListToLocalStorage();
     DoneAdd.classList.add("hidden");
     isMultiSelectEnabled = false;
     toggleMultiSelectMode(false);
     restoreIcons();
+    BudgetCalculator();
+    Total();
 })
 
 document.getElementById("cancel-add-completed").addEventListener("click", function () {
     DoneAdd.classList.add("hidden");
+    removemulti();
 })
+
+const removemulti = () => {
+    isMultiSelectEnabled = false;
+    toggleMultiSelectMode(false);
+    restoreIcons();
+}
 
 RemoveCompleted.addEventListener("click", function () {
     MultipleSelect.classList.add("hidden");
     DoneRemove.classList.remove("hidden");
     isMultiSelectEnabled = !isMultiSelectEnabled;
     toggleMultiSelectMode(isMultiSelectEnabled);
-    AddDeco(All, [Incomplete, Completed]);
+    AddDeco(Completed, [Incomplete, All]);
+    filter = "Completed";
+    filterList();
 })
 
 DoneRemove.addEventListener("click", function () {
     const selectedItems = ToDoBox.querySelectorAll("li.selected");
     selectedItems.forEach(item => {
-        AddDeco(All, [Completed, Incomplete]);
+        AddDeco(Incomplete, [Completed, All]);
         item.dataset.completed = "false";
-        filter = "All";
+        filter = "Incomplete";
         filterList();
     });
+    saveListToLocalStorage();
     DoneRemove.classList.add("hidden");
     isMultiSelectEnabled = false;
     toggleMultiSelectMode(false);
     restoreIcons();
+    BudgetCalculator();
+    Total();
 })
 
 document.getElementById("cancel-remove-completed").addEventListener("click", function () {
     DoneRemove.classList.add("hidden");
+    removemulti();
 })
 
 // Event listener to toggle multi-select mode
@@ -802,6 +857,8 @@ DeleteMultiSelect.addEventListener("click", function () {
         toggleMultiSelectMode(false);
         restoreIcons();
         deleteSelectedItems();
+        BudgetCalculator();
+        Total();
     }
 });
 
@@ -861,6 +918,8 @@ const addEventListenerToInputs = (ListItem) => {
         select1.value = select2.value;
     });
 
+    select1.addEventListener('input', () => calculateResult(ListItem));
+    select2.addEventListener('input', () => calculateResult(ListItem));
 };
 
 // Function to calculate and display result based on quantity and price inputs
@@ -900,6 +959,7 @@ const calculateResult = (ListItem) => {
     }
     loadBudgetFromStorage();
     BudgetCalculator();
+    Total();
     saveListToLocalStorage();
 };
 
